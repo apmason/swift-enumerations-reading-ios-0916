@@ -1,27 +1,32 @@
 func playerDidMove(_ direction: String) {
+    print("Player moved \(direction)")
+}
+
+playerDidMove("up")
+// prints "Player moved up"
+
+func newplayerDidMove(_ direction: String) {
     if direction == "up" ||
-       direction == "down" ||
-       direction == "left" ||
-       direction == "right" {
+        direction == "down" ||
+        direction == "left" ||
+        direction == "right" {
         print("Player moved \(direction)")
     } else {
         print("Oops! That direction doesn't make sense: \(direction)")
     }
 }
 
-playerDidMove("up")
-playerDidMove("left")
-playerDidMove("dwn")
-playerDidMove("Up")
-
-
+newplayerDidMove("up")
+// prints "Player moved up"
+newplayerDidMove("diagonally left")
+// prints "Oops! That direction doesn't make sense: diagonally left
 
 enum Direction {
     case up
     case down
     case left
     case right
-
+    
     var excited: String {
         switch self {
         case .up:
@@ -38,16 +43,27 @@ enum Direction {
 
 let direction1 = Direction.up
 let direction2: Direction = .down
+
+func otherplayerDidMove(_ direction: Direction) {
+    print("Player moved \(direction)")
+}
+
+otherplayerDidMove(.left)
+
+
 var direction3: Direction = .right
 
-let direction = Direction.left
+otherplayerDidMove(direction1)
+// prints "Player moved up"
+otherplayerDidMove(direction2)
+// prints "Player moved down"
+otherplayerDidMove(direction3)
+// prints "Player moved right"
 
-func playerDidMove(_ direction: Direction) {
+func finalplayerDidMove(_ direction: Direction) {
     print("Player moved \(direction.excited)")
 }
 
-playerDidMove(direction1)
-playerDidMove(direction2)
-playerDidMove(direction3)
+finalplayerDidMove(.left)
 
-playerDidMove(.left)
+
